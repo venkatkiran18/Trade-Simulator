@@ -341,7 +341,7 @@ if "user" not in st.session_state:
 
 user = st.session_state.user
 
-db_file = user["db_filename"]
+db_file = user["id"]
 
 cash = database.load_account(db_file)
 
