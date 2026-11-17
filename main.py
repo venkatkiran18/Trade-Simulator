@@ -24,182 +24,168 @@ auth.initialize_auth_db()
 # MODERN TRADING TERMINAL DESIGN
 # --------------------------------------------------
 
+
+
 st.markdown("""
 <style>
+
+/* MAIN BACKGROUND */
 .stApp {
-    background: #080D13;
-    color: #F1F5F9;
+    background: #080D13 !important;
+    color: #FFFFFF !important;
 }
 
-[data-testid="stSidebar"] {
-    display: none;
+/* ALL HEADINGS */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
 }
 
-header[data-testid="stHeader"] {
-    background: #080D13;
-}
-
-.block-container {
-    padding-top: 1.3rem;
-    padding-bottom: 2rem;
-    max-width: 1500px;
-}
-
-h1, h2, h3 {
+/* NORMAL TEXT */
+.stApp p,
+.stApp label,
+.stApp li,
+.stApp [data-testid="stMarkdownContainer"] {
     color: #F1F5F9 !important;
-}
-
-p, label {
-    color: #C1CBD6;
 }
 
 /* TOP NAVIGATION */
-
-.topbar {
-    background: #111923;
-    border: 1px solid #253343;
-    border-radius: 14px;
-    padding: 14px 18px;
-    margin-bottom: 25px;
-}
-
-div[data-testid="stRadio"] > div[role="radiogroup"] {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
 div[data-testid="stRadio"] label {
-    background: #172331;
-    border: 1px solid #293849;
-    border-radius: 9px;
-    padding: 7px 13px;
-    margin: 0;
+    background: #1B2A3B !important;
+    border: 1px solid #465B70 !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
 }
 
+/* NAVIGATION TEXT */
+div[data-testid="stRadio"] label p,
+div[data-testid="stRadio"] label span {
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+/* SELECTED NAVIGATION */
 div[data-testid="stRadio"] label:has(input:checked) {
-    background: #B8F34A;
-    border-color: #B8F34A;
-    color: #101510;
+    background: #B8F34A !important;
+    border: 2px solid #B8F34A !important;
 }
 
-div[data-testid="stRadio"] label:has(input:checked) p {
+div[data-testid="stRadio"] label:has(input:checked) p,
+div[data-testid="stRadio"] label:has(input:checked) span {
     color: #101510 !important;
-    font-weight: 700;
+    font-weight: 900 !important;
 }
 
-/* METRIC CARDS */
-
+/* ACCOUNT METRIC CARDS */
 [data-testid="stMetric"] {
-    background: #121C29;
-    border: 1px solid #263648;
-    border-radius: 15px;
-    padding: 20px;
-    min-height: 115px;
+    background: #172536 !important;
+    border: 1px solid #40536A !important;
+    border-radius: 18px !important;
+    padding: 24px !important;
 }
 
-[data-testid="stMetricLabel"] {
-    color: #AAB8C5 !important;
+/* METRIC LABELS */
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] label {
+    color: #FFFFFF !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
 }
 
-[data-testid="stMetricValue"] {
-    color: #F1F5F9 !important;
-    font-weight: 700;
-}
-
-[data-testid="stMetricDelta"] svg {
-    display: inline;
+/* ACCOUNT VALUES */
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] div {
+    color: #FFFFFF !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
 }
 
 /* BUTTONS */
-
 div.stButton > button,
 div.stFormSubmitButton > button {
-    background: #B8F34A;
-    color: #101510;
-    border: none;
-    border-radius: 9px;
-    font-weight: 700;
-    min-height: 42px;
+    background: #B8F34A !important;
+    color: #101510 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 900 !important;
+    font-size: 16px !important;
+    min-height: 46px !important;
 }
 
-div.stButton > button:hover,
-div.stFormSubmitButton > button:hover {
-    background: #C9FF62;
-    color: #101510;
-    border: none;
+div.stButton > button *,
+div.stFormSubmitButton > button * {
+    color: #101510 !important;
 }
 
-/* INPUTS */
-
-div[data-baseweb="select"] > div,
-div[data-baseweb="input"] > div {
-    background: #121C29;
-    border: 1px solid #34465A;
-    border-radius: 9px;
+/* INPUT FIELDS */
+div[data-baseweb="input"] > div,
+div[data-baseweb="select"] > div {
+    background: #172536 !important;
+    border: 1px solid #53677D !important;
 }
 
 input, textarea {
-    color: #F1F5F9 !important;
+    color: #FFFFFF !important;
+    font-size: 16px !important;
 }
 
-/* DATA TABLE */
-
-[data-testid="stDataFrame"] {
-    border: 1px solid #263648;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* TABS */
-
-button[data-baseweb="tab"] {
-    color: #AAB8C5;
-}
-
-button[data-baseweb="tab"][aria-selected="true"] {
-    color: #B8F34A;
-    border-bottom-color: #B8F34A;
+/* LOGIN EMAIL */
+.brand {
+    color: #B8F34A !important;
+    font-weight: 900 !important;
 }
 
 /* CUSTOM PANELS */
-
 .terminal-panel {
-    background: #121C29;
-    border: 1px solid #263648;
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 15px;
+    background: #172536 !important;
+    border: 1px solid #40536A !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
 }
 
 .terminal-muted {
-    color: #9AAABC;
-    font-size: 13px;
+    color: #DCE5EF !important;
+    font-size: 15px !important;
 }
 
-.positive {
-    color: #38D996;
-    font-weight: bold;
+/* TABLES */
+[data-testid="stDataFrame"] {
+    border: 1px solid #40536A !important;
+    border-radius: 12px !important;
 }
 
-.negative {
-    color: #FF5964;
-    font-weight: bold;
+/* CAPTIONS */
+.stCaption,
+[data-testid="stCaptionContainer"] {
+    color: #C8D3E0 !important;
 }
 
-.brand {
-    color: #B8F34A;
-    font-size: 24px;
-    font-weight: 800;
-}
-
+/* DIVIDERS */
 hr {
-    border-color: #263648;
+    border-color: #40536A !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px !important;
+    }
+
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] div {
+        font-size: 25px !important;
+    }
+
+    div[data-testid="stRadio"] label p {
+        font-size: 14px !important;
+    }
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --------------------------------------------------
