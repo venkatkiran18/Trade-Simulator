@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+
+# Database files - keep private
+*.db
+*.sqlite
+*.sqlite3
+
+# Secrets
+.env
+secrets.toml
+
+# IDE
+.vscode/
+
+# System files
+.DS_Store
