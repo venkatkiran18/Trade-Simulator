@@ -395,7 +395,7 @@ with nav_right:
 if page in ["Overview", "Market & Charts", "Portfolio"]:
 
     st_autorefresh(
-        interval=30_000,
+        interval=5000,
         key="tradesim_refresh"
     )
 
